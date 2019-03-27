@@ -1,10 +1,34 @@
 class ATMView
+
+    def menu_view
+
+        command = ""
+
+        # Infinite loop the menu for as long as the user does not select D, W, B, Q
+        while command != "Q" && command !="W" && command !="B" ** command !="D"
+            puts
+            puts " *********************************************** "
+            puts "       Please select from the following:"
+            puts "| {D}eposit | {W}ithdraw | {B}alance | {Q}uit |"
+            puts " *********************************************** "
+            puts
+            command = gets.chomp.upcase
+        end
+        # Send the command back to controller if it is D, W, B, Q
+        return command
+    end
+
     def welcome_view
         puts
         puts " ---------------------"
         puts "Welcome to the ATM app."
         puts " ---------------------"
         puts
+    end
+
+    def get_choice(command)
+        puts
+        puts ""
     end
 
     def overdrawn_view
