@@ -1,11 +1,10 @@
 class ATMView
-
     def menu_view
 
         command = ""
 
         # Infinite loop the menu for as long as the user does not select D, W, B, Q
-        while command != "Q" && command !="W" && command !="B" ** command !="D"
+        while command != "Q" && command !="W" && command !="B" && command !="D"
             puts
             puts " *********************************************** "
             puts "       Please select from the following:"
@@ -20,15 +19,24 @@ class ATMView
 
     def welcome_view
         puts
-        puts " ---------------------"
-        puts "Welcome to the ATM app."
-        puts " ---------------------"
+        puts " ------------------------"
+        puts
+        puts "WELCOME TO THE ATM-MVC APP."
+        puts
+        puts " ------------------------"
         puts
     end
 
-    def get_choice(command)
-        puts
-        puts ""
+    def get_deposit_amount
+        puts "**** How much do you want to deposit? ****"
+        amount = gets.chomp.strip.to_f
+        return amount
+    end
+
+    def get_withdraw_amount
+        puts "**** How much do you want to withdraw? ****"
+        amount = gets.chomp.strip.to_f
+        return amount
     end
 
     def overdrawn_view
@@ -47,7 +55,7 @@ class ATMView
         puts
     end
 
-    def deposit_view(amount)
+    def deposit_confirm_view(amount)
         puts
         puts "-----------------------------------------"
         puts "    You have chosen to deposit $#{amount}."
@@ -55,7 +63,7 @@ class ATMView
         puts
     end
 
-    def withdrawal_view(amount)
+    def withdrawal_confirm_view(amount)
         puts
         puts "-----------------------------------------"
         puts "    You have chosen to withdraw $#{amount}."
