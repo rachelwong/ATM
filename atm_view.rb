@@ -55,22 +55,6 @@ class ATMView
         puts
     end
 
-    def deposit_confirm_view(amount)
-        puts
-        puts "-----------------------------------------"
-        puts "    You have chosen to deposit $#{amount}."
-        puts "-----------------------------------------"
-        puts
-    end
-
-    def withdrawal_confirm_view(amount)
-        puts
-        puts "-----------------------------------------"
-        puts "    You have chosen to withdraw $#{amount}."
-        puts "-----------------------------------------"
-        puts
-    end
-
     def balance_view(balance)
         puts
         puts "*********************************"
