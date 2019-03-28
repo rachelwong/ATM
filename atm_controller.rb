@@ -1,8 +1,5 @@
 require_relative 'atm_model'
 require_relative 'atm_view'
-require 'io/console'
-require 'rubygems'
-require 'bundler/setup'
 
 class ATMController
 
@@ -22,9 +19,11 @@ class ATMController
             case command
                 when "D"
                     deposit = @model.deposit(balance)
+                    @view.balance_view(balance) # show balance
                     # Call model to Deposit method
                 when "W"
                     withdraw = @model.withdraw(balance)
+                    @view.balance_view(balance) # show balance
                     # Call model to Withdrawal method
                 when "B"
                     # Call model to balance update method
@@ -32,6 +31,7 @@ class ATMController
                 else 
                     @view.error_view #error message
             end
+            command = @view.menu_view # show menu
         end
         @view.exit_view
     end
