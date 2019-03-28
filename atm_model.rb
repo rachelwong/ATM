@@ -18,6 +18,8 @@ class ATMModel
             # increment the balance
             balance = balance + amount
             return balance
+        else
+            return balance
         end
     end
 
@@ -32,6 +34,7 @@ class ATMModel
             return balance
         else
             @view.overdrawn_view
+            return balance
         end
     end
 

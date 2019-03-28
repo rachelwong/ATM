@@ -26,7 +26,7 @@ ruby atm.rb
 
 
 #### Bugs
-* Allows overdrawn 
+* Allows overdrawn  
 * When Deposit is chosen and no amount is provided, it depletes the balance. 
 
 ### Key lessons learnt
