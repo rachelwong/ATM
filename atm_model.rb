@@ -3,8 +3,11 @@ require_relative 'atm_controller'
 
 class ATMModel
 
+    attr_reader :pin
+    attr_accessor :balance
     def initialize
         @view = ATMView.new
+        @pin = "0101"
     end
 
     def deposit(amount, balance)
@@ -13,7 +16,6 @@ class ATMModel
         # show the updated balance
         if check_value?(amount)
             # increment the balance
-            p "i'm here"
             balance = balance + amount
             return balance
         end
@@ -26,10 +28,10 @@ class ATMModel
         # check the amount is not more than balance
         if check_value?(amount) && balance > amount
             # reduce the balance
-            balance = balance - amount
+            balance -= amount
             return balance
         else
-            @view.error_view
+            @view.overdrawn_view
         end
     end
 

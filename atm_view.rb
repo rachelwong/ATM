@@ -24,18 +24,35 @@ class ATMView
         puts "WELCOME TO THE ATM-MVC APP."
         puts
         puts " ------------------------"
-        puts
+    end
+
+    def enter_pin
+        puts "Please enter your pin."
+        input_put = gets.chomp.strip.to_i
+    end
+
+    def incorrect_pin(pin_try)
+        puts "Incorrect Pin."
+        puts "You have #{pin_try} attempts remaining."
+        input_put = gets.chomp.strip.to_i
+    end
+
+    def lockout
+        puts "You have exhausted all attempts at pin authentication."
+        puts "You are not granted entry."
     end
 
     def get_deposit_amount
+        system("clear")
         puts "**** How much do you want to deposit? ****"
-        amount = gets.chomp.strip.to_f
+        amount = gets.chomp.to_f
         return amount
     end
 
     def get_withdraw_amount
+        system("clear")
         puts "**** How much do you want to withdraw? ****"
-        amount = gets.chomp.strip.to_f
+        amount = gets.chomp.to_f
         return amount
     end
 

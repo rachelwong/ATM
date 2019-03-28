@@ -9,19 +9,23 @@ class ATMController
     end
 
     def run(balance)
+        correct_pin = false
+        pin_try = 3
+
+        pin = @view.enter_pin
+                
         @view.welcome_view # welcome screen
 
         @view.balance_view(balance) # show balance
 
         command = @view.menu_view # show menu
-
+        
         while command != "Q"
             case command
                 when "D"
                     # Call model to Deposit method
                     deposit_amount = @view.get_deposit_amount # Get Amount
                     balance = @model.deposit(deposit_amount, balance) # Add Deposit
-                    p "i got here"
                     @view.balance_view(balance) # Show updated balance
                 when "W"
                     # Call model to Withdrawal method
