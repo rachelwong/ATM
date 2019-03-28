@@ -7,42 +7,35 @@ class ATMModel
         @view = ATMView.new
     end
 
-    def deposit(balance)
+    def deposit(amount, balance)
         system("clear")
         # get amount
         # show the updated balance
-        deposit_amount = @view.get_deposit_amount
-        if check_value?(balance)
+        if check_value?(amount)
             # increment the balance
-            balance += deposit_amount
+            p "i'm here"
+            balance = balance + amount
             return balance
-            @view.balance_view(balance)
         end
-        
     end
 
-    def withdraw(balance)
+    def withdraw(amount, balance)
         # get amount
-        system("clear")
-        withdraw_amount = @view.get_withdraw_amount
-        
+        system("clear")        
         # if the input is negative amount, error message
         # check the amount is not more than balance
-        # reduce the balance
-        if check_balance?(amount)
-            balance = balance - withdraw_amount
+        if check_value?(amount) && balance > amount
+            # reduce the balance
+            balance = balance - amount
             return balance
-            # show the updated balance
         else
-            "Invalid Input! Try again. "
+            @view.error_view
         end
-        @view.balance_view(balance)
     end
 
     def get_balance(balance)
         system("clear")
         @view.balance_view(balance)
-        return balance
     end
 
     def check_value?(amount)

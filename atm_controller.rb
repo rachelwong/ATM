@@ -18,16 +18,19 @@ class ATMController
         while command != "Q"
             case command
                 when "D"
-                    deposit = @model.deposit(balance)
-                    @view.balance_view(balance) # show balance
                     # Call model to Deposit method
+                    deposit_amount = @view.get_deposit_amount # Get Amount
+                    balance = @model.deposit(deposit_amount, balance) # Add Deposit
+                    p "i got here"
+                    @view.balance_view(balance) # Show updated balance
                 when "W"
-                    withdraw = @model.withdraw(balance)
-                    @view.balance_view(balance) # show balance
                     # Call model to Withdrawal method
+                    withdraw_amount = @view.get_withdraw_amount # Get amount
+                    balance = @model.withdraw(withdraw_amount, balance) # Withdraw amount
+                    @view.balance_view(balance) # Show updated balance
                 when "B"
                     # Call model to balance update method
-                    puts "Current Balance: #{balance}."
+                    @view.balance_view(balance)
                 else 
                     @view.error_view #error message
             end
