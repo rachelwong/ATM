@@ -7,7 +7,7 @@ class ATMModel
     attr_accessor :balance
     def initialize
         @view = ATMView.new
-        @pin = "0101"
+        @pin = 0101
     end
 
     def deposit(amount, balance)

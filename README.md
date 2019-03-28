@@ -26,8 +26,9 @@ ruby atm.rb
 
 
 #### Bugs
-* Allows overdrawn  
-* When Deposit is chosen and no amount is provided, it depletes the balance. 
+* Allows overdrawn  - fixed @ 28/3
+* When Deposit is chosen and no amount is provided, it depletes the balance. - fixed @ 28/3
+* Pin authentication is not fixed
 
 ### Key lessons learnt
 * *Model* doesn't talk to *View*. Controller talks to *View* to pass the result to model to compute.

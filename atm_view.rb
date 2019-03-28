@@ -28,7 +28,8 @@ class ATMView
 
     def enter_pin
         puts "Please enter your pin."
-        input_put = gets.chomp.strip.to_i
+        input_pin = gets.chomp.strip.to_i
+        return input_pin
     end
 
     def incorrect_pin(pin_try)
