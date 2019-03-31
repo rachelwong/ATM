@@ -28,7 +28,7 @@ class ATMModel
         system("clear")        
         # if the input is negative amount, error message
         # check the amount is not more than balance
-        if check_value?(amount) && balance > amount
+        if check_value?(amount) && balance >= amount
             # reduce the balance
             balance -= amount
             return balance

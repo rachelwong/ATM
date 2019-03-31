@@ -9,21 +9,20 @@ class ATMController
     end
 
     def run(balance)
-        correct_pin = false
-        pin_try = 3
-        pin = @view.enter_pin
-        # when pin is right/true and pin_try is not zero
-        while !correct_pin && pin_try != 0
-            if pin == @pin
-                correct_pin = true 
+        # correct_pin = false
+        # pin_try = 3
+        # pin = @view.enter_pin
+        # # when pin is right/true and pin_try is not zero
+        # while !correct_pin && pin_try != 0
+        #     if pin == @pin
+        #         correct_pin = true 
+                command =""
+                @view.welcome_view # welcome screen
 
                 while command != "Q"
-                    @view.welcome_view # welcome screen
+                    gets.chomp
+                    command = @view.menu_view 
 
-                    @view.balance_view(balance) # show balance
-
-                    command = @view.menu_view # show menu
-                
                     case command
                         when "D"
                             # Call model to Deposit method
@@ -38,20 +37,22 @@ class ATMController
                         when "B"
                             # Call model to balance update method
                             @view.balance_view(balance)
+                        when "Q"
+                            break
                         else 
-                            @view.error_view #error message
+                        @view.error_view #error message
                     end
-                command = @view.menu_view # show menu
+                # command = @view.menu_view # show menu
                 end
             @view.exit_view
-            else
-                pin_try -= 1
-                if pin_try > 0
-                    pin = @view.incorrect_pin(pin_try)
-                else
-                    @view.lockout
-                end
-            end
-        end
+            # else
+            #     pin_try -= 1
+            #     if pin_try > 0
+            #         pin = @view.incorrect_pin(pin_try)
+            #     else
+            #         @view.lockout
+            #     end
+            # end
+        # end
     end
 end
